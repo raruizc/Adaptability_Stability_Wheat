@@ -1,0 +1,351 @@
+####INICIO####
+rm(list=ls(all=T)) 
+
+setwd("C:/Users/Ricardo Ruiz/Desktop/Mestrado GMP/Congresos/UFLA - Congresso Pos graduação")
+
+dir()
+
+library(ggplot2)
+### LAVRAS ###
+
+dados <- read.csv("LAVRAS_m9_medias.csv", header =TRUE,sep = ",")
+
+dados <- transform(dados, TREATMENT=factor(TREATMENT))
+
+str(dados)
+
+##Least Square Means - Scott-Knott ####
+
+df_b <- data.frame(dados$TREATMENT, dados$predicted.value)
+colnames(df_b) <- c("TREATMENT","PREDICTED")
+str(df_b)
+x.j <- cbind(df_b[,1],df_b[,2])
+nobs <- 3
+mult <- matrix(1,nobs,1)
+xk.j <- kronecker(x.j,mult)
+
+GLe.i <- 31
+SSe.i <- 120359*31
+
+(CV <- sqrt(120359)/mean(dados$predicted.value))
+
+#Using a function SKT - Scott-Knott at the end of this file
+result <- SKT(xk.j[,2], xk.j[,1], round(GLe.i,digits=0), SSe.i, alpha = 0.05, debug=TRUE)
+result$Treatments <- as.character(result$Treatments)
+result$Treatments <- as.numeric(result$Treatments)
+result <- result[order(result$Treatments),]
+
+df_b$SK <- result$Groups
+(df_b)
+
+color_pallete_function <- colorRampPalette(
+  colors = c("black", "blue", "red"),
+  space = "Lab" # Option used when colors do not represent a quantitative scale
+)
+num_colors <- length(unique(df_b$SK))
+SK_colors <- color_pallete_function(num_colors)
+dados$std.error
+print(ggplot(df_b, aes(y=reorder(TREATMENT,PREDICTED), x=PREDICTED, color = SK)) + #sort the hybrids by the values of the BLUPs
+        labs (x = "Rendimento de grãos (kg/ha)", y = "Cultivares", title = "LAVRAS") +
+        geom_point() +
+        geom_vline(xintercept = mean(dados[,3], na.rm = T), col = "red") +
+        # geom_errorbarh(aes(xmin=dadoslower.CL,
+        #                    xmax=upper.CL), height=0.5)) +
+        theme(axis.text.x = element_text(color="black"),
+              axis.text.y = element_text(color="black")) +
+        theme(legend.position = "none"))
+
+## LAMBARI ###
+
+dados <- read.csv("LAMBARI_m3_medias.csv", header =TRUE,sep = ",")
+
+dados <- transform(dados, TREATMENT=factor(TREATMENT))
+
+str(dados)
+
+##Least Square Means - Scott-Knott ####
+
+df_b <- data.frame(dados$TREATMENT, dados$predicted.value)
+colnames(df_b) <- c("TREATMENT","PREDICTED")
+str(df_b)
+x.j <- cbind(df_b[,1],df_b[,2])
+nobs <- 3
+mult <- matrix(1,nobs,1)
+xk.j <- kronecker(x.j,mult)
+
+GLe.i <- 32
+SSe.i <- 107878*32
+
+(CV <- sqrt(107878)/mean(dados$predicted.value))
+# #colnames(xk.i) <- c("Genotipos","Medias")
+# 
+# GLe.i <- mean(medg.i$df,na.rm = T)
+# ve.i <- mean(medg.i$SE^2, na.rm = T)*nobs
+# SSe.i <- ve.i*GLe.i
+
+#Using a function SKT - Scott-Knott at the end of this file
+result <- SKT(xk.j[,2], xk.j[,1], round(GLe.i,digits=0), SSe.i, alpha = 0.05, debug=TRUE)
+result$Treatments <- as.character(result$Treatments)
+result$Treatments <- as.numeric(result$Treatments)
+result <- result[order(result$Treatments),]
+
+df_b$SK <- result$Groups
+(df_b)
+
+color_pallete_function <- colorRampPalette(
+  colors = c("black", "blue", "red"),
+  space = "Lab" # Option used when colors do not represent a quantitative scale
+)
+num_colors <- length(unique(df_b$SK))
+SK_colors <- color_pallete_function(num_colors)
+dados$std.error
+print(ggplot(df_b, aes(y=reorder(TREATMENT,PREDICTED), x=PREDICTED, color = SK)) + #sort the hybrids by the values of the BLUPs
+        labs (x = "Rendimento de grãos (kg/ha)", y = "Cultivares", title = "LAMBARI") +
+        geom_point() +
+        geom_vline(xintercept = mean(dados[,3], na.rm = T), col = "red") +
+        # geom_errorbarh(aes(xmin=dadoslower.CL,
+        #                    xmax=upper.CL), height=0.5)) +
+        theme(axis.text.x = element_text(color="black"),
+              axis.text.y = element_text(color="black")) +
+        theme(legend.position = "none"))
+
+### SAO GONCALO ###
+
+dados <- read.csv("SGS_m7_medias.csv", header =TRUE,sep = ",")
+
+dados <- transform(dados, TREATMENT=factor(TREATMENT))
+
+str(dados)
+
+##Least Square Means - Scott-Knott ####
+
+df_b <- data.frame(dados$TREATMENT, dados$predicted.value)
+colnames(df_b) <- c("TREATMENT","PREDICTED")
+str(df_b)
+x.j <- cbind(df_b[,1],df_b[,2])
+nobs <- 3
+mult <- matrix(1,nobs,1)
+xk.j <- kronecker(x.j,mult)
+
+GLe.i <- 31
+SSe.i <- 85769*31
+
+(CV <- sqrt(85769)/mean(dados$predicted.value))
+#Using a function SKT - Scott-Knott at the end of this file
+result <- SKT(xk.j[,2], xk.j[,1], round(GLe.i,digits=0), SSe.i, alpha = 0.05, debug=TRUE)
+result$Treatments <- as.character(result$Treatments)
+result$Treatments <- as.numeric(result$Treatments)
+result <- result[order(result$Treatments),]
+
+df_b$SK <- result$Groups
+(df_b)
+
+color_pallete_function <- colorRampPalette(
+  colors = c("black", "blue", "red"),
+  space = "Lab" # Option used when colors do not represent a quantitative scale
+)
+num_colors <- length(unique(df_b$SK))
+SK_colors <- color_pallete_function(num_colors)
+dados$std.error
+print(ggplot(df_b, aes(y=reorder(TREATMENT,PREDICTED), x=PREDICTED, color = SK)) + #sort the hybrids by the values of the BLUPs
+        labs (x = "Rendimento de grãos (kg/ha)", y = "Cultivares", title = "SG") +
+        geom_point() +
+        geom_vline(xintercept = mean(dados[,3], na.rm = T), col = "red") +
+        # geom_errorbarh(aes(xmin=dadoslower.CL,
+        #                    xmax=upper.CL), height=0.5)) +
+        theme(axis.text.x = element_text(color="black"),
+              axis.text.y = element_text(color="black")) +
+        theme(legend.position = "none")) #hide the legend
+
+### FUNCAO SK ###
+SKT <- function (y, trt, DFerror, SSerror, alpha = 0.05, group = TRUE, 
+                 main = NULL, debug=FALSE) 
+{
+  sk <- function(medias, s2, dfr, prob) {
+    bo <- 0
+    si2 <- s2
+    defr <- dfr
+    parou <- 1
+    np <- length(medias) - 1
+    for (i in 1:np) {
+      g1 <- medias[1:i]
+      g2 <- medias[(i + 1):length(medias)]
+      B0 <- sum(g1)^2/length(g1) + sum(g2)^2/length(g2) - 
+        (sum(g1) + sum(g2))^2/length(c(g1, g2))
+      if (B0 > bo) {
+        bo <- B0
+        parou <- i
+      }
+    }
+    g1 <- medias[1:parou]
+    g2 <- medias[(parou + 1):length(medias)]
+    teste <- c(g1, g2)
+    sigm2 <- (sum(teste^2) - sum(teste)^2/length(teste) + 
+                defr * si2)/(length(teste) + defr)
+    lamb <- pi * bo/(2 * sigm2 * (pi - 2))
+    v0 <- length(teste)/(pi - 2)
+    p <- pchisq(lamb, v0, lower.tail = FALSE)
+    if (p < prob) {
+      for (i in 1:length(g1)) {
+        cat(names(g1[i]), "\n", file = "skresult", 
+            append = TRUE)
+      }
+      cat("*", "\n", file = "skresult", 
+          append = TRUE)
+    }
+    if (length(g1) > 1) {
+      sk(g1, s2, dfr, prob)
+    }
+    if (length(g2) > 1) {
+      sk(g2, s2, dfr, prob)
+    }
+  }
+  
+  medias <- sort(tapply(y, trt, mean), decreasing = TRUE)
+  dfr <- DFerror
+  rep <- tapply(y, trt, length)
+  s0 <- MSerror <- SSerror/DFerror
+  s2 <- s0/rep[1]
+  prob <- alpha
+  sk(medias, s2, dfr, prob)
+  f <- names(medias)
+  names(medias) <- 1:length(medias)
+  resultado <- data.frame(r = 0, f = f, m = medias)
+  if (file.exists("skresult") == FALSE) {
+    stop
+  }
+  else {
+    xx <- read.table("skresult")
+    file.remove("skresult")
+    x <- xx[[1]]
+    x <- as.vector(x)
+    z <- 1
+    for (j in 1:length(x)) {
+      if (x[j] == "*") {
+        z <- z + 1
+      }
+      for (i in 1:length(resultado$f)) {
+        if (resultado$f[i] == x[j]) {
+          resultado$r[i] <- z
+        }
+      }
+    }
+  }
+  letras <- letters
+  if (length(resultado$r) > 26) {
+    l <- floor(length(resultado$r)/26)
+    for (i in 1:l) letras <- c(letras, paste(letters, i, 
+                                             sep = ""))
+  }
+  res <- 1
+  for (i in 1:(length(resultado$r) - 1)) {
+    if (resultado$r[i] != resultado$r[i + 1]) {
+      resultado$r[i] <- letters[res]
+      res <- res + 1
+      if (i == (length(resultado$r) - 1)) {
+        resultado$r[i + 1] <- letters[res]
+      }
+    }
+    else {
+      resultado$r[i] <- letters[res]
+      if (i == (length(resultado$r) - 1)) {
+        resultado$r[i + 1] <- letters[res]
+      }
+    }
+  }
+  names(resultado) <- c("Groups", "Treatments", 
+                        "Means")
+  
+  if (debug==TRUE) {return(resultado)}
+}
+
+
+###### GGE BIPLOT #####3
+
+library(readxl)
+
+library(rlang)
+library(metan)
+
+Dados_2022_Locais_Trigo <- read_excel("dados_medias.xlsx", 
+                                      sheet = "Dados")
+str(Dados_2022_Locais_Trigo)
+dados_correcao <- transform(Dados_2022_Locais_Trigo, 
+                            Local =factor(Local),
+                            TREATMENT = factor(TREATMENT))
+### Biplot tipo 2: Desempenho médio vs. estabilidade
+gge_model <- gge (dados_correcao, Local, TREATMENT, predicted.value, svp = "genotype")
+
+
+plot(gge_model,
+     type = 2,
+     col.gen = "black",
+     col.env = "red",
+     axis_expand = 1.5,
+     plot_theme = theme_metan_minimal())
+
+### Biplot tipo 3: Qual-Ganhou-Onde
+
+gge_model <- gge (dados_correcao, Local, TREATMENT, predicted.value, svp = "symmetrical")
+
+
+plot(gge_model,
+     type = 3,
+     size.shape.win = 5,
+     large_label = 6,
+     col.gen = "black",
+     col.env = "gray",
+     title = TRUE,
+     plot_theme = theme_metan(color.background = transparent_color()))
+
+### Biplot tipo 7: Examinar um genotipo
+
+
+gge_model <- gge(dados_correcao, Local, TREATMENT, predicted.value, svp = "genotype")
+m <- plot(gge_model, type = 7, sel_gen = "H4")
+n <- plot(gge_model,
+          type = 7,
+          sel_gen = "H4",
+          col.gen = "black",
+          col.env = "black",
+          size.text.env = 10,
+          axis_expand = 1.5,
+          plot_theme = theme_metan (grid = "both"))
+arrange_ggplot(m, n, tag_levels = list(c("m", "n")))
+
+
+### Biplot tipo 8: Classificacao genotipos
+
+
+gge_model <- gge(dados_correcao, Local, TREATMENT, predicted.value, svp = "genotype")
+
+tiff(filename = paste("Classificacao genotipo","GE",".tiff", sep = "_"), width = 5, height = 10, units = "in", res = 300, compression = "lzw")
+
+
+plot(gge_model,
+          type = 8,
+          col.gen = "black",
+          col.env = "gray",
+          size.text.gen = 6,
+     size.text.env = 5,
+          plot_theme = theme_metan_minimal())
+
+dev.off()
+
+### Biplot tipo 9: Comparar dois genótipos
+
+gge_model <- gge (df_ge, ENV, GEN, MMG, svp = "symmetrical")
+q <- plot(gge_model,
+          type = 9, 
+          sel_gen1 = "H8",
+          sel_gen2 = "H10")
+r <- plot(gge_model,
+          type = 9,
+          sel_gen1 = "H8",
+          sel_gen2 = "H10",
+          col.gen = "black",
+          size.text.gen = 1,
+          size.text.win = 5,
+          title = FALSE,
+          plot_theme = theme_metan_minimal())
+arrange_ggplot(q, r, tag_levels = list (c("q", "r")))

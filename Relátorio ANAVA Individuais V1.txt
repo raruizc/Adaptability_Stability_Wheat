@@ -1,0 +1,674 @@
+------------------------------------------------------------------ 
+ANAVA POR AMBIENTE ALT 
+------------------------------------------------------------------ 
+------------------------------------------------------------------ 
+Anova - Variavel: ITIRAPUA-2022 ALT 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC LRT Df Pr(>Chisq)
+<none>         20 -103.66 247.33                  
+(1 | IBLOCK)   19 -103.66 245.33   0  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+REP         18.2   9.101     2    30  0.3229    0.7266    
+TREATMENT 3146.8 209.789    15    30  7.4423 1.798e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITIRAPUA-2023 ALT 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC LRT Df Pr(>Chisq)
+<none>         20 -86.154 212.31                  
+(1 | IBLOCK)   19 -86.154 210.31   0  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+REP        238.4  119.19     2    30  13.587 6.292e-05 ***
+TREATMENT 3881.8  258.79    15    30  29.502 7.175e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITUTINGA-2022 ALT 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC    LRT Df Pr(>Chisq)
+<none>         19 -50.957 139.91                     
+(1 | IBLOCK)   18 -51.945 139.89 1.9756  1     0.1599
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)   
+REP          0.78   0.781     1 12.000  0.0454 0.83490   
+TREATMENT 1532.68 102.179    15 12.534  5.9342 0.00149 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITUTINGA-2023 ALT 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC         LRT Df Pr(>Chisq)
+<none>         20 -88.958 217.92                          
+(1 | IBLOCK)   19 -88.958 215.92 -5.6843e-14  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+REP        151.1  75.536     2    30  7.1427  0.002903 ** 
+TREATMENT 4580.1 305.339    15    30 28.8727 9.628e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAMBARI-2022 ALT 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC    LRT Df Pr(>Chisq)  
+<none>         20 -112.81 265.63                       
+(1 | IBLOCK)   19 -115.36 268.73 5.1008  1    0.02391 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         51.7  25.849     2 27.000  0.5840    0.5646    
+TREATMENT 3554.1 236.941    15 27.551  5.3532 7.363e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAMBARI-2023 ALT 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC    LRT Df Pr(>Chisq)  
+<none>         20 -97.577 235.15                       
+(1 | IBLOCK)   19 -99.576 237.15 3.9991  1    0.04552 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         48.4   24.20     2 27.000  1.4867    0.2441    
+TREATMENT 6877.9  458.53    15 27.599 28.1648 8.006e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAVRAS-2022 ALT 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC    LRT Df Pr(>Chisq)
+<none>         20 -104.90 249.79                     
+(1 | IBLOCK)   19 -105.02 248.04 0.2524  1     0.6154
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP        649.39  324.69     2 27.000 11.0540 0.0003111 ***
+TREATMENT 1933.30  128.89    15 26.293  4.3879 0.0004663 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAVRAS-2023 ALT 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC    LRT Df Pr(>Chisq)
+<none>         20 -84.792 209.58                     
+(1 | IBLOCK)   19 -85.878 209.76 2.1726  1     0.1405
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         2.55   1.273     2 27.000  0.1774    0.8384    
+TREATMENT 914.12  60.941    15 27.638  8.4906 8.771e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: SAO GONCALO SAPUCAI-2022 ALT 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar   logLik    AIC   LRT Df Pr(>Chisq)  
+<none>         20  -99.671 239.34                      
+(1 | IBLOCK)   19 -101.533 241.06 3.724  1    0.05363 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF DenDF F value   Pr(>F)    
+REP        169.0  84.516     2 27.00  4.4955  0.02064 *  
+TREATMENT 3653.5 243.569    15 27.61 12.9558 9.06e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anovas Individuais (Ambiente) - Variavel: ALT 
+------------------------------------------------------------------ 
+                               QME      CVe  Acuracia  Fc Genot      Pr > Fc Shapiro_P-value
+ITIRAPUA-2022            28.188611 8.572597 0.9303942  7.442328 1.797929e-06     0.009801554
+ITIRAPUA-2023             8.772069 3.726764 0.9829056 29.501475 7.175205e-14     0.610460042
+ITUTINGA-2022            17.218750 6.467878 0.9118575  5.934160 1.490439e-03     0.744720616
+ITUTINGA-2023            10.575347 3.951768 0.9825300 28.872706 9.628124e-14     0.150652434
+LAMBARI-2022             44.261702 9.696112 0.9017733  5.353176 7.363199e-05     0.249356818
+LAMBARI-2023             16.280221 4.536754 0.9820869 28.164831 8.005809e-13     0.580164392
+LAVRAS-2022              29.373328 9.746961 0.8786923  4.387891 4.662876e-04     0.391933220
+LAVRAS-2023               7.177536 4.000511 0.9392669  8.490570 8.771172e-07     0.584155867
+SAO GONCALO SAPUCAI-2022 18.800026 6.838284 0.9606322 12.955757 9.060146e-09     0.417968199
+Teste de Hartley - Variavel: ALT 
+[1] "Fmax"
+[1] 6.166699
+[1] "P > Fmax"
+[1] 0.0005289563
+[1] "Variancias residuais heterogeneas - Modelo heterocedastico indicado"
+------------------------------------------------------------------ 
+ANAVA POR AMBIENTE PROD 
+------------------------------------------------------------------ 
+------------------------------------------------------------------ 
+Anova - Variavel: ITIRAPUA-2022 PROD 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC     LRT Df Pr(>Chisq)
+<none>         20 -214.67 469.34                      
+(1 | IBLOCK)   19 -214.91 467.82 0.48513  1     0.4861
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP       855714  427857     2 27.000  9.8063 0.0006289 ***
+TREATMENT 893012   59534    15 26.946  1.3645 0.2338908    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITIRAPUA-2023 PROD 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC LRT Df Pr(>Chisq)
+<none>         20 -227.23 494.45                  
+(1 | IBLOCK)   19 -227.23 492.45   0  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+REP       4296967 2148484     2    29 12.0686 0.0001536 ***
+TREATMENT 3630660  242044    15    29  1.3596 0.2318294    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITUTINGA-2022 PROD 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC     LRT Df Pr(>Chisq)
+<none>         19 -127.30 292.59                      
+(1 | IBLOCK)   18 -127.39 290.79 0.19636  1     0.6577
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value   Pr(>F)   
+REP       4988706 4988706     1  12.0  9.4264 0.009712 **
+TREATMENT 4428871  295258    15  11.6  0.5579 0.856570   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITUTINGA-2023 PROD 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC      LRT Df Pr(>Chisq)
+<none>         20 -216.06 472.13                       
+(1 | IBLOCK)   19 -216.09 470.17 0.044023  1     0.8338
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+REP       1252016  626008     2 24.926  4.5964 0.01999 *
+TREATMENT 4713844  314256    15 23.535  2.3074 0.03359 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAMBARI-2022 PROD 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC     LRT Df Pr(>Chisq)
+<none>         20 -250.85 541.70                      
+(1 | IBLOCK)   19 -251.17 540.34 0.63469  1     0.4256
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+REP        218147  109074     2 27.000  0.2257 0.7994
+TREATMENT 4836200  322413    15 27.162  0.6672 0.7926
+------------------------------------------------------------------ 
+Anova - Variavel: LAMBARI-2023 PROD 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC     LRT Df Pr(>Chisq)
+<none>         20 -210.68 461.36                      
+(1 | IBLOCK)   19 -211.13 460.26 0.89999  1     0.3428
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+REP       1332492  666246     2 23.983  4.4384 0.02291 *
+TREATMENT 3743499  249567    15 25.000  1.6625 0.12654  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAVRAS-2022 PROD 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC      LRT Df Pr(>Chisq)
+<none>         20 -235.05 510.10                       
+(1 | IBLOCK)   19 -235.08 508.16 0.062791  1     0.8021
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+REP       1134966  567483     2 27.000  3.2285 0.05531 .
+TREATMENT 4403706  293580    15 24.665  1.6702 0.12536  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAVRAS-2023 PROD 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC     LRT Df Pr(>Chisq)
+<none>         20 -225.96 491.93                      
+(1 | IBLOCK)   19 -226.12 490.23 0.30205  1     0.5826
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+REP        277250  138625     2 27.000  1.4797 0.2456
+TREATMENT 1826664  121778    15 26.488  1.2999 0.2692
+------------------------------------------------------------------ 
+Anova - Variavel: SAO GONCALO SAPUCAI-2022 PROD 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC    LRT Df Pr(>Chisq)
+<none>         20 -234.54 509.07                     
+(1 | IBLOCK)   19 -235.33 508.67 1.5947  1     0.2067
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value   Pr(>F)   
+REP       2073760 1036880     2 27.000  6.5781 0.004707 **
+TREATMENT 2257787  150519    15 27.597  0.9549 0.522007   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anovas Individuais (Ambiente) - Variavel: PROD 
+------------------------------------------------------------------ 
+                               QME       CVe  Acuracia  Fc Genot    Pr > Fc Shapiro_P-value
+ITIRAPUA-2022             43630.64 23.117948 0.5168482 1.3645023 0.23389081    0.2404903384
+ITIRAPUA-2023            178023.16 12.665921 0.5142965 1.3596209 0.23182944    0.1902224784
+ITUTINGA-2022            529224.25 35.667991       NaN 0.5579073 0.85656953    0.8913825491
+ITUTINGA-2023            136196.23  5.751263 0.7527335 2.3073785 0.03359182    0.0009493777
+LAMBARI-2022             483258.95 46.504557       NaN 0.6671648 0.79260589    0.3168159753
+LAMBARI-2023             150111.15 18.673925 0.6312786 1.6625453 0.12653558    0.4650473264
+LAVRAS-2022              175771.59 41.874303 0.6334690 1.6702382 0.12535688    0.5838801942
+LAVRAS-2023               93684.90 11.373884 0.4803004 1.2998636 0.26915125    0.7355666675
+SAO GONCALO SAPUCAI-2022 157625.42 16.181785       NaN 0.9549164 0.52200714    0.5008374979
+Teste de Hartley - Variavel: PROD 
+[1] "Fmax"
+[1] 12.12965
+[1] "P > Fmax"
+[1] 0.0004999094
+[1] "Variancias residuais heterogeneas - Modelo heterocedastico indicado"
+------------------------------------------------------------------ 
+ANAVA POR AMBIENTE PH 
+------------------------------------------------------------------ 
+------------------------------------------------------------------ 
+Anova - Variavel: ITIRAPUA-2022 PH 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC      LRT Df Pr(>Chisq)
+<none>         20 -71.231 182.46                       
+(1 | IBLOCK)   19 -71.275 180.55 0.088565  1      0.766
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+REP        1.534   0.767     2 27.000  0.2424 0.7864
+TREATMENT 60.075   4.005    15 25.064  1.2657 0.2921
+------------------------------------------------------------------ 
+Anova - Variavel: ITIRAPUA-2023 PH 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC      LRT Df Pr(>Chisq)
+<none>         20 -60.314 160.63                       
+(1 | IBLOCK)   19 -60.329 158.66 0.029572  1     0.8635
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         2.181  1.0905     2 27.000  0.7063 0.5023783    
+TREATMENT 124.580  8.3053    15 23.277  5.3790 0.0001626 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITUTINGA-2022 PH 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC     LRT Df Pr(>Chisq)
+<none>         19 -45.492 128.98                      
+(1 | IBLOCK)   18 -45.591 127.18 0.19894  1     0.6556
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+REP        50.03  50.025     1 12.000  5.1614 0.04229 *
+TREATMENT 320.92  21.395    15 11.612  2.2075 0.08966 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITUTINGA-2023 PH 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC         LRT Df Pr(>Chisq)
+<none>         20 -63.392 166.78                          
+(1 | IBLOCK)   19 -63.392 164.78 -3.6948e-13  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF DenDF F value  Pr(>F)  
+REP        0.553  0.2767     2    28  0.1084 0.89764  
+TREATMENT 99.588  6.6392    15    28  2.6009 0.01401 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAMBARI-2022 PH 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC      LRT Df Pr(>Chisq)
+<none>         20 -104.98 249.96                       
+(1 | IBLOCK)   19 -104.99 247.98 0.014212  1     0.9051
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+REP        26.71  13.354     2 27.000  0.4383 0.6496
+TREATMENT 571.79  38.119    15 23.225  1.2512 0.3053
+------------------------------------------------------------------ 
+Anova - Variavel: LAMBARI-2023 PH 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC   LRT Df Pr(>Chisq)
+<none>         20 -82.555 205.11                    
+(1 | IBLOCK)   19 -83.357 204.72 1.604  1     0.2053
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+REP        32.355  16.178     2 27.000  2.5805 0.09429 .
+TREATMENT 230.082  15.339    15 27.605  2.4467 0.02020 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAVRAS-2022 PH 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC     LRT Df Pr(>Chisq)
+<none>         20 -89.819 219.64                      
+(1 | IBLOCK)   19 -89.912 217.82 0.18593  1     0.6663
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value  Pr(>F)  
+REP        24.01  12.004     2 27.000  1.1104 0.34400  
+TREATMENT 421.56  28.104    15 25.945  2.5997 0.01583 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAVRAS-2023 PH 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC      LRT Df Pr(>Chisq)
+<none>         20 -51.685 143.37                       
+(1 | IBLOCK)   19 -51.715 141.43 0.058899  1     0.8082
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         3.999  1.9994     2 27.000  2.3152     0.118    
+TREATMENT 105.128  7.0086    15 24.592  8.1157 3.505e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: SAO GONCALO SAPUCAI-2022 PH 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik   AIC         LRT Df Pr(>Chisq)
+<none>         20 -63.151 166.3                          
+(1 | IBLOCK)   19 -63.151 164.3 -1.1369e-13  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+REP         3.399  1.6996     2    28  0.6773 0.5161134    
+TREATMENT 170.902 11.3935    15    28  4.5403 0.0002775 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anovas Individuais (Ambiente) - Variavel: PH 
+------------------------------------------------------------------ 
+                                QME      CVe  Acuracia Fc Genot      Pr > Fc Shapiro_P-value
+ITIRAPUA-2022             3.1642145 2.180112 0.4581917 1.265726 2.920891e-01    0.0283910085
+ITIRAPUA-2023             1.5440140 1.615712 0.9022711 5.379037 1.625774e-04    0.0006968034
+ITUTINGA-2022             9.6920914 3.863011 0.7395895 2.207470 8.966021e-02    0.7461304235
+ITUTINGA-2023             2.5526151 2.024176 0.7845535 2.600943 1.400825e-02    0.4428945150
+LAMBARI-2022             30.4649851 6.599981 0.4481022 1.251244 3.052696e-01    0.5978865668
+LAMBARI-2023              6.2691068 3.179031 0.7689539 2.446724 2.019533e-02    0.0541415640
+LAVRAS-2022              10.8104104 4.257469 0.7844399 2.599739 1.583198e-02    0.9885055653
+LAVRAS-2023               0.8635751 1.188537 0.9363668 8.115748 3.505009e-06    0.9984705978
+SAO GONCALO SAPUCAI-2022  2.5094303 1.750533 0.8830335 4.540256 2.774659e-04    0.0004321919
+Teste de Hartley - Variavel: PH 
+[1] "Fmax"
+[1] 35.27775
+[1] "P > Fmax"
+[1] 0.0004999094
+[1] "Variancias residuais heterogeneas - Modelo heterocedastico indicado"
+------------------------------------------------------------------ 
+ANAVA POR AMBIENTE PMS 
+------------------------------------------------------------------ 
+------------------------------------------------------------------ 
+Anova - Variavel: ITIRAPUA-2022 PMS 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC        LRT Df Pr(>Chisq)
+<none>         20 -45.529 131.06                         
+(1 | IBLOCK)   19 -45.529 129.06 1.4211e-14  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF  F value  Pr(>F)    
+REP          5.82   2.910     2    30   4.9777 0.01359 *  
+TREATMENT 1241.45  82.763    15    30 141.5598 < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITIRAPUA-2023 PMS 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC       LRT Df Pr(>Chisq)
+<none>         20 -62.660 165.32                        
+(1 | IBLOCK)   19 -62.662 163.32 0.0043183  1     0.9476
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP        35.17  17.585     2 27.000  9.6538 0.0006872 ***
+TREATMENT 949.93  63.328    15 21.789 34.7657 9.103e-12 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITUTINGA-2022 PMS 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC    LRT Df Pr(>Chisq)
+<none>         19 -31.536 101.07                     
+(1 | IBLOCK)   18 -32.316 100.63 1.5606  1     0.2116
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         1.36   1.361     1 12.000  1.0282    0.3306    
+TREATMENT 765.16  51.011    15 12.549 38.5288 4.345e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: ITUTINGA-2023 PMS 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC LRT Df Pr(>Chisq)
+<none>         20 -69.459 178.92                  
+(1 | IBLOCK)   19 -69.459 176.92   0  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+REP         6.11   3.056     2    28  0.7763    0.4698    
+TREATMENT 547.44  36.496    15    28  9.2690 3.118e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAMBARI-2022 PMS 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC    LRT Df Pr(>Chisq)  
+<none>         20 -58.708 157.42                       
+(1 | IBLOCK)   19 -60.191 158.38 2.9645  1    0.08511 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         5.40   2.700     2 27.000  2.1755     0.133    
+TREATMENT 681.55  45.437    15 27.635 36.6077 2.761e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAMBARI-2023 PMS 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC     LRT Df Pr(>Chisq)
+<none>         20 -57.969 155.94                      
+(1 | IBLOCK)   19 -58.166 154.33 0.39448  1       0.53
+Type III Analysis of Variance Table with Satterthwaite's method
+          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         5.09   2.544     2 27.000  1.9967    0.1553    
+TREATMENT 846.96  56.464    15 26.812 44.3263 5.099e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAVRAS-2022 PMS 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC        LRT Df Pr(>Chisq)
+<none>         20 -61.933 163.87                         
+(1 | IBLOCK)   19 -61.933 161.87 8.5265e-14  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value Pr(>F)    
+REP          4.59   2.293     2    30  1.3137 0.2838    
+TREATMENT 1227.90  81.860    15    30 46.9083 <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: LAVRAS-2023 PMS 
+------------------------------------------------------------------ 
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC      LRT Df Pr(>Chisq)
+<none>         20 -61.295 162.59                       
+(1 | IBLOCK)   19 -61.335 160.67 0.078211  1     0.7797
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+REP         17.49   8.746     2 27.000  5.3529   0.01101 *  
+TREATMENT 1007.64  67.176    15 24.918 41.1124 7.815e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anova - Variavel: SAO GONCALO SAPUCAI-2022 PMS 
+------------------------------------------------------------------ 
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
+
+Model:
+dados.i[dados.i$AMBIENTE == nomamb[j], ncol(dados.i)] ~ REP + TREATMENT + (1 | IBLOCK)
+             npar  logLik    AIC LRT Df Pr(>Chisq)
+<none>         20 -70.884 181.77                  
+(1 | IBLOCK)   19 -70.884 179.77   0  1          1
+Type III Analysis of Variance Table with Satterthwaite's method
+           Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+REP          1.27   0.636     2    30  0.2006    0.8193    
+TREATMENT 1004.56  66.971    15    30 21.1290 6.355e-12 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+------------------------------------------------------------------ 
+Anovas Individuais (Ambiente) - Variavel: PMS 
+------------------------------------------------------------------ 
+                               QME      CVe  Acuracia   Fc Genot      Pr > Fc Shapiro_P-value
+ITIRAPUA-2022            0.5846528 1.975884 0.9964617 141.559781 1.292131e-23    8.056047e-01
+ITIRAPUA-2023            1.8215792 3.350242 0.9855131  34.765656 9.102513e-12    6.536473e-01
+ITUTINGA-2022            1.3239583 2.978987 0.9869374  38.528833 4.345361e-08    9.967527e-01
+ITUTINGA-2023            3.9373992 4.775413 0.9445177   9.269012 3.118492e-07    6.111706e-05
+LAMBARI-2022             1.2411779 2.936462 0.9862471  36.607666 2.760763e-14    7.211836e-01
+LAMBARI-2023             1.2738278 3.304988 0.9886557  44.326316 5.099126e-15    6.576645e-01
+LAVRAS-2022              1.7451076 3.501627 0.9892835  46.908343 1.129428e-16    3.236938e-01
+LAVRAS-2023              1.6339661 3.531327 0.9877634  41.112405 7.814978e-14    4.836053e-02
+SAO GONCALO SAPUCAI-2022 3.1696111 4.597887 0.9760490  21.128968 6.355450e-12    6.264982e-08
+Teste de Hartley - Variavel: PMS 
+[1] "Fmax"
+[1] 6.734594
+[1] "P > Fmax"
+[1] 0.0005018269
+[1] "Variancias residuais heterogeneas - Modelo heterocedastico indicado"

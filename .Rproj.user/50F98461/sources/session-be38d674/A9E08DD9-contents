@@ -1,0 +1,210 @@
+#Start####
+rm(list=ls(all=T)) 
+
+##Mudar o diretorio
+setwd("D:/Curriculum Lattes/Orientacoes/Dissertacoes/Andamento Dissertacao orientador 2022.1-2023.2 (Ricardo)/Dados_2022")
+
+##Ler o arquivo de dados
+library(openxlsx)
+dados <- read.xlsx('Dados 2022 Locais Trigo.xlsx',sheet = 'Resumo2022')
+dados <- transform(dados,LOCAL=factor(LOCAL),REP=factor(REP), 
+                   IBLOCK=factor(IBLOCK), TREATMENT=factor(TREATMENT))
+
+dados <- dados[,-c(8,10:11)]
+
+library(lme4)
+library(ggplot2)
+library(lmerTest)
+library(nlme)
+library(emmeans)
+library(multcomp)
+library(tidyr)
+library(tidyverse)
+source("D:\\UFLA\\Disciplinas\\Pos-Graduacao\\Emprego de softwares Gen?tica\\Fun??es R\\sk.r")
+
+####Analise por Local####
+#i=7
+
+for (i in 7:ncol(dados))
+{
+  cat("------------------------------------------------------------------", "\n")
+  cat("ANAVA POR LOCAL", colnames(dados)[i], "\n")
+  cat("------------------------------------------------------------------", "\n")
+  dados.i <- dados[,c(1:6,i)]
+  dados.i <- na.omit(dados.i)
+  nomamb <- levels(droplevels(dados.i)$LOCAL)
+
+  statsamb <- matrix(0, nlevels(droplevels(dados.i)$LOCAL),6)
+  rownames(statsamb) <- levels(droplevels(dados.i)$LOCAL)
+  colnames(statsamb) <- c("QME", "CVe", "Acuracia", "Fc Genot", "Pr > Fc", "Shapiro_P-value")
+  
+  #j=1
+  for (j in 1:nlevels(droplevels(dados.i)$LOCAL))
+  {
+    cat("------------------------------------------------------------------", "\n")
+    cat("Anova - Variavel:", nomamb[j], colnames(dados)[i], "\n")
+    cat("------------------------------------------------------------------", "\n")
+    lmer.i <- lmer(dados.i[dados.i$LOCAL==nomamb[j],ncol(dados.i)] ~ REP + (1|IBLOCK) + TREATMENT, data=dados.i[dados.i$LOCAL==nomamb[j],])
+    print(lrt.i <- ranova(lmer.i))
+    anova.i <- anova(lmer.i)
+    GLe.i <- anova.i$DenDF[2]
+    
+    statsamb[nomamb[j],1] <- sigma(lmer.i)^2
+    statsamb[nomamb[j],2] <- sqrt(statsamb[nomamb[j],1])/mean(dados.i[dados.i$LOCAL==nomamb[j],ncol(dados.i)])*100
+    statsamb[nomamb[j],3] <- sqrt(1-1/anova.i$'F value'[2])
+    statsamb[nomamb[j],4] <- anova.i$'F value'[2]
+    statsamb[nomamb[j],5] <- anova.i$'Pr(>F)'[2]
+    
+    resid <- residuals(lmer.i)
+    statsamb[nomamb[j],6] <- shapiro.test(resid)$ p.value
+    
+    #qqnorm(resid, main = paste("Normal Q-Q Plot of" , nomamb[j], colnames(dados)[i]))
+    # identify(qqnorm(resid, main = paste("Normal Q-Q Plot of" , nomamb[j], colnames(dados)[i])))
+    # dados.ij <- dados.i[dados.i$Amb==nomamb[j],]
+    # dados.ij[c(1, 33),]
+
+  }
+  
+  #cat("Anovas Individuais (Local) - Variavel:", colnames(dados)[i], "\n")
+  print(statsamb)
+  cat("Teste de Hartley - Variavel:", colnames(dados)[i], "\n")
+  print("Fmax"); print(Fmax <- max(statsamb[,1])/min(statsamb[,1]))
+  print("P > Fmax"); print(Pvalor <- SuppDists::pmaxFratio(q = Fmax, df = GLe.i, k=nlevels(droplevels(dados.i)$LOCAL), lower.tail=F, log.p=FALSE))
+  if (Pvalor < 0.05) print("Variancias residuais heterogeneas - Modelo heterocedastico indicado") else print("Variancias residuais homogeneas")
+
+}
+
+
+#### Analises Multilocais - VCU ####
+
+nom_traits <- c("Altura da planta (cm)", "Peso do Hectolitro (Kg/hL)", "Rendimento de gr?os (kg/ha)")
+
+#i=7
+
+for (i in 7:ncol(dados))
+{
+  cat("------------------------------------------------------------------", "\n")
+  cat("ANAVA MULTILOCAIS", colnames(dados)[i], "\n")
+  cat("------------------------------------------------------------------", "\n")
+  dados.i <- dados[,c(1:6,i)]
+  dados.i <- na.omit(dados.i)
+
+  gls.y <- lm(dados.i[,ncol(dados.i)] ~ LOCAL + LOCAL:REP + TREATMENT + LOCAL:TREATMENT, data=dados.i)
+    
+  # if (colnames(dados)[i] == "PROD_CORR") {
+  #      gls.y <- gls(dados.i[,ncol(dados.i)] ~ LOCAL + LOCAL:REP + TREATMENT + 
+  #                     LOCAL:TREATMENT, weights = varIdent(form= ~ 1|LOCAL), data=dados.i)}
+
+    #print(summary(gls.y))
+    print(anova.i <- data.frame(anova(gls.y)))
+
+  ##Least Square Means - Scott-Knott ####
+    ### Main effect of Cultivar ####
+    medg.i <- summary(emmeans(gls.y, ~TREATMENT))
+    x.i <- cbind(medg.i[,1],medg.i[,2])
+    nobs <- nlevels(droplevels(dados.i)$LOCAL)*nlevels(droplevels(dados.i)$REP)
+    mult <- matrix(1,nobs,1)
+    xk.i <- kronecker(x.i,mult)
+
+    GLe.i <- mean(medg.i$df,na.rm = T)
+    ve.i <- mean(medg.i$SE^2, na.rm = T)*nobs
+    SSe.i <- ve.i*GLe.i
+    
+    #result1 <- ExpDes::scottknott(xk.i[,2], xk.i[,1], round(GLe.i,digits=0), SSe.i, alpha = 0.05)
+    
+    #Using a function SK - Scott-Knott at the end of this file
+    result <- SK(xk.i[,2], xk.i[,1], round(GLe.i,digits=0), SSe.i, alpha = 0.05, debug=TRUE)
+    result$Treatments <- as.character(result$Treatments)
+    result$Treatments <- as.numeric(result$Treatments)
+    result <- result[order(result$Treatments),]
+    
+    medg.i$SK <- result$Groups
+    
+    #Plotting a catterpillar with grouping of SK
+    tiff(filename = paste(paste(colnames(dados)[i],".tiff", sep = "_")), width = 4, height = 5, units = "in", res = 300, compression = "lzw")
+    
+    color_pallete_function <- colorRampPalette(
+      colors = c("black", "blue", "red"),
+      space = "Lab" # Option used when colors do not represent a quantitative scale
+    )
+    num_colors <- length(unique(medg.i$SK))
+    SK_colors <- color_pallete_function(num_colors)
+    
+    print(ggplot(medg.i, aes(y=reorder(TREATMENT,emmean), x=emmean, color = SK)) + #sort the hybrids by the values of the BLUPs
+            labs (x = nom_traits[i-6], y = "Cultivares") +
+            geom_point() +
+            geom_vline(xintercept = mean(dados.i[,ncol(dados.i)], na.rm = T), col = "red") +
+            geom_errorbarh(aes(xmin=lower.CL,
+                               xmax=upper.CL), height=0.5) +
+            theme(axis.text.x = element_text(color="black"),
+                  axis.text.y = element_text(color="black")) +
+            theme(legend.position = "none")) #hide the legend
+    
+    dev.off()
+    
+    ### G x E means - Variedade x amb####
+    medge.i <- summary(emmeans(gls.y, ~ TREATMENT:LOCAL))
+    medge.i$SK <- NA
+    
+    nAmb <- unique(medge.i$LOCAL)
+    
+    #iAmb="ITIRAPUA"
+    
+    for (iAmb in nAmb)
+    {
+      medge.ii <- medge.i[medge.i$LOCAL==iAmb,]
+      x.i <- cbind(medge.ii[,1],medge.ii[,3])
+      nrep <- nlevels(droplevels(dados.i)$REP)
+      mult <- matrix(1,nrep,1)
+      xk.i <- kronecker(x.i,mult)
+      
+      GLe.i <- mean(medge.ii$df,na.rm = T)
+      ve.i <- mean(medge.ii$SE^2, na.rm = T)*nrep
+      SSe.i <- ve.i*GLe.i
+      
+      #Using a function SK - Scott-Knott at the end of this file
+      result <- SK(xk.i[,2], xk.i[,1], round(GLe.i,digits=0), SSe.i, alpha = 0.05, debug=TRUE)
+      result$Treatments <- as.character(result$Treatments)
+      result$Treatments <- as.numeric(result$Treatments)
+      result <- result[order(result$Treatments),]
+      
+      medge.ii$SK <- result$Groups
+      medge.i[medge.i$LOCAL==iAmb,] <- medge.ii
+    }
+  
+      tiff(filename = paste(colnames(dados)[i],"GE",".tiff", sep = "_"), width = 5, height = 10, units = "in", res = 300, compression = "lzw")
+      
+      color_pallete_function <- colorRampPalette(
+        colors = c("black", "blue", "red"),
+        space = "Lab" # Option used when colors do not represent a quantitative scale
+      )
+      num_colors <- length(unique(medge.i$SK))
+      SK_colors <- color_pallete_function(num_colors)
+      
+      #Plotting a catterpillar with grouping of SK - ordered for the first label of the facets
+      nl <- nlevels(medge.i$TREATMENT)
+      medge.test <- medge.i %>% 
+        ungroup() %>% # As a precaution / handle in a separate .grouped_df method
+        arrange(LOCAL, emmean)
+      medge.test <- medge.test %>%
+        mutate(TREATMENT=factor(TREATMENT, levels=medge.test$TREATMENT[1:nl]))
+      
+      #Plotting a vertical line by Amb within facets
+      mean_y <- data.frame(tapply(medge.test$emmean, medge.test$LOCAL, mean))
+      mean_y$LOCAL <- rownames(mean_y)
+      colnames(mean_y) <- c("emmean","LOCAL")
+
+      print(ggplot(medge.test, aes(y=TREATMENT,x=emmean, color = SK)) +
+              labs (x = nom_traits[i-6], y = "Cultivares") +
+              geom_point() +
+              geom_errorbarh(aes(y=TREATMENT, xmin=lower.CL,
+                                xmax=upper.CL), height=0.5) +
+              geom_vline(aes(xintercept = emmean), col = "red", mean_y) +
+              theme(axis.text.x = element_text(color="black", size = 7),
+                    axis.text.y = element_text(color="black", size = 7)) +
+              facet_wrap(~LOCAL, scales = "free_y" ,nrow = 5, ncol = 1, strip.position = "right") +
+              theme(legend.position = "none")) #hide the legend
+      dev.off()
+
+}
+
