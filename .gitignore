@@ -19,3 +19,8 @@ __pycache__/
 Thumbs.db
 desktop.ini
 ~$*
+
+# Raw field-trial data (not public yet)
+data/Dados.xlsx
+data/Dados 2022 Locais Trigo.xlsx
+data/2023_ENSAIO_CULTIVARES.xlsx

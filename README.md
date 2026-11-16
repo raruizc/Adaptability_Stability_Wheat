@@ -24,7 +24,7 @@ Analysis code from my **MSc dissertation in Genetics and Plant Breeding** (UFLA)
 
 ```text
 Adaptability_Stability_Wheat/
-├── data/                  # field trial data (Excel)
+├── data/                  # derived example tables (raw trial data not public, see below)
 ├── scripts/
 │   ├── 01 Rotina_Espacial_Two_stage_analysis.R       # stage 1 + 2, all traits
 │   ├── 01 Rotina_Espacial_Two_stage_analysis_IPPH.R  # same pipeline for IPPH
@@ -41,6 +41,7 @@ Adaptability_Stability_Wheat/
 ## How to run
 
 1. Open `Mestrado_Ricardo.Rproj` in RStudio. All paths are relative to the project root.
+   The raw plot-level data (`data/Dados.xlsx`) are not publicly available yet; the adjusted means in `output/tables/` are enough to run the stability analyses.
 2. Install the packages: `metan`, `lme4`, `emmeans`, `readxl`, `rio`, `tidyr`, `stringr`, `ggplot2`, `fmsb`, `asremlPlus`.
 3. Run `scripts/01 ...` and then `scripts/02 ...`.
 
